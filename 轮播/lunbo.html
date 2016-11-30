@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JS练习-轮播</title>
+    <style>
+        img{
+            animation: imgShow-left 2s;
+        }
+        /**/
+        @keyframes imgHide {
+            from{
+                  opacity:1;
+              }
+            to{
+                opacity:0;
+            }
+        }
+        @keyframes imgShow-left{
+            from{
+                margin-left: 100%;
+                opacity:0;
+            }
+            to{
+                margin-left: 0;
+                opacity:1;
+            }
+        }
+        @keyframes imgShow-right{
+            from{
+                margin-right: 100%;
+                opacity:0;
+            }
+            to{
+                margin-right: 0;
+                opacity:1;
+            }
+        }
+
+
+        /**/
+        button{
+            width: 50px;
+            height: 50px;
+            border-radius: 50%  ;
+        }
+        #b1{
+            margin-right: -50px;
+            z-index: 2;
+        }
+        #b2{
+            margin-left: -50px;
+            z-index: 2;
+        }
+        div[name=img]{
+            overflow: hidden;
+            width: 500px;
+            height: 400px;
+        }
+        figure{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        p{
+            font-size: 40px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+<main>
+    <div><p>轮播 Demo</p></div>
+
+    <figure>
+        <button id="b1"><</button>
+        <div name="img">
+            <img id="show" style="width:100%;height: 100%" src="https://zhangyuhan2016.github.io/public/image/piao/s1.jpg">
+        </div>
+        <button id="b2">></button>
+    </figure>
+</main>
+
+<script src="../../public/xxwww/jquery.min.js"></script>
+<script>
+
+
+    class photoCarousel {
+        constructor(id, setObj) {
+            this.id = id;
+            let {imgs, num, tempSrc}=setObj;
+            this.imgs = imgs;
+            this.num = num || 0;
+            this.tempSrc = tempSrc;
+        }
+
+        up() {
+            --this.num;
+            this.tImg();
+        }
+
+        down() {
+            ++this.num;
+            this.tImg();
+        }
+        pIndex(){
+            if(this.num===this.imgs.length){
+                this.num=0;
+            }
+            if(this.num<0){
+                this.num=this.imgs.length-1;
+            }
+        }
+        tImg(cssName) {
+            this.pIndex();
+            /*补全图片路径*/
+
+            let temp = this.tempSrc + this.imgs[this.num];
+
+            /*应对setTimeout 内this指向window问题*/
+            let id = this.id;
+
+            /*添加 图片消失效果*/
+            $(id).css({
+                animation:'imgHide 0.5s'
+            })
+
+            /*添加 图片出现效果*/
+            setTimeout(function () {
+                /*修改路径*/
+                $(id).attr('src', temp);
+
+                $(id).css({
+                    animation:'imgShow-left 0.8s'
+                })
+            },250)
+        }
+    }
+
+
+
+    /***配置
+
+        图片路径-tempSrc ,
+        图片名称-imgs,
+        图片初始下标-num 默认0,
+
+    ***/
+    let setObj={
+        imgs:['s1.jpg','s2.jpg','s3.jpg','s4.jpg','tour5.jpg','s6.jpg','hot7.jpg','hot8.jpg'],
+        tempSrc:'https://zhangyuhan2016.github.io/public/image/piao/',
+    }
+
+    /*实例化*/
+    let test=new photoCarousel('#show',setObj);
+
+
+
+    /*事件监听*/
+    $('button').on('click',function () {
+        loop($(this).attr('id'))
+    });
+
+    /**/
+    function loop(id) {
+        if(id==='b1'){
+            test.up();
+        }
+        if(id==='b2'){
+            test.down()
+        }
+    }
+
+</script>
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>JS基础-数据类型</title>
+</head>
+<body>
+
+
+<script>
+  
+  /*
+    数据类型
+
+      JavaScript语言可以识别下面 7 种不同类型的值：
+
+        六种 原型 数据类型:
+        Boolean.  布尔值，true 和 false.
+        null. 一个表明 null 值的特殊关键字。 JavaScript 是大小写敏感的，因此 null 与 Null、NULL或其他变量完全不同。
+        undefined.  变量未定义时的属性。
+        Number.  表示数字，例如： 42 或者 3.14159。
+        String.  表示字符串，例如："Howdy"
+        Symbol ( 在 ECMAScript 6 中新添加的类型).。一种数据类型，它的实例是唯一且不可改变的。
+        以及 Object 对象
+
+  */
+
+  (function(){
+
+      // undefined null NaN
+
+      console.info('undefined,null,NaN在不同数据类型下的表现:');
+
+      console.log('Boolean:',Boolean(undefined),Boolean(null),Boolean(NaN));
+      console.log('Number:',Number(undefined),Number(null),Number(NaN));
+
+  })()
+
+
+</script>
+</body>
+</html>

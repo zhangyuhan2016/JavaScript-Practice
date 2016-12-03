@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>JS基础-变量</title>
+</head>
+<body>
+
+
+<script>
+ 
+
+
+  /*声明变量的三种方式的区别*/
+  /*
+    var
+      声明一个变量，可选择将其初始化为一个值。
+    let
+      声明一个块作用域的局部变量(block scope local variable)，可选择将其初始化为一个值。
+    const
+      声明一个只读的常量。
+  */
+
+
+
+  function tsFun(){
+
+      console.log('未声明之前:',tsVar);
+
+      /*
+        变量声明提升
+      */
+
+      var tsVar;let tsLet;
+
+
+      // 用 var | let 声明的且未赋初值的变量，值会被设定为 undefined
+      console.log('未赋值之前:',tsVar,tsLet);
+
+     
+
+      // 常量const 声明时需赋值,不然初始化报错
+      const tsConst='函数内const';
+
+      /*
+      tsConst='测试const';
+      
+      为常量赋值会报错 
+        Uncaught TypeError: Assignment to constant variable.
+      */
+
+      if(tsLet===undefined){
+          let bLet='块let';
+          var bVar='块var';
+          const bConst='块const';
+          console.log('块内:',bLet,bVar,bConst);
+      }
+      
+      /*
+      console.log('块外:',bLet,bVar,bConst);
+      
+      bVar 能正常读取;
+
+      bLet ,bConst 则提示未定义;
+      */ 
+
+      tsLet='函数内let';
+      tsVar='函数内var';
+
+      console.log('函数内:',tsVar,tsLet,tsConst);
+  }
+
+
+  tsFun();
+
+  /*
+  console.log('函数外:',tsVar,tsLet,tsConst)
+
+  由于变量的作用域为函数体内所以无法读取
+
+  */
+
+  /*总结：
+  
+    变量：
+      全局变量：
+          在所有函数之外声明的变量，叫做全局变量，因为它可被当前文档中的任何其他代码所访问
+          
+          全局变量实际上是全局对象的属性。在网页中，（译注：缺省的）全局对象是 window，所以你可以用形如 window.variable的语法来设置和访问全局变量。
+      区部变量：
+          在函数内部声明的变量，叫做局部变量，因为它只能在该函数内部访问。
+
+
+
+      var 的作用域为函数作用域,声明会被提升至顶部
+
+      let ,const 的作用域为块作用域(代码块内 ps:{}),声明不会被提升(暂时性死区)
+    
+  */
+
+</script>
+</body>
+</html>

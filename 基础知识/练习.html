@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+  <title>JavaScript高级程序设计-练习笔记</title>
+</head>
+<body>
+
+
+<script type="text/javascript">
+  
+
+
+
+/***
+5.6.3 -p.122
+String 类型(包装类型)
+***/0
+
+let stringValue="Hello World";
+// charAt And charCodeAt
+console.group("String类型");
+console.info(".charAt(0) 指定位置的字符\t"+stringValue.charAt(0));
+console.info(".charCodeAt(0) 指定位置的字符编码\t"+stringValue.charCodeAt(0));
+console.info("String[1] 指定位置的字符\t"+stringValue[1]);
+
+console.info('.concat() 拼接字符串 =="Hello"+"World"\t'+stringValue.concat('One','Two'))
+console.info("截取字符串的三种方法 .slice(起始下标，结束下标) .substr(起,截取长度) .substring(起,结)(.substring(3,0)=>.substring(0,3) 会将较小的数当作开始位置)"+stringValue.slice(2),stringValue.slice(2,5),stringValue.slice(-2),stringValue.slice(2,-2));
+console.groupEnd();  
+/*错误记录
+
+  1.console.log()输出中文乱码 //调整文件编码为UTF-8
+
+*/
+
+
+
+</script>
+</body>
+</html>

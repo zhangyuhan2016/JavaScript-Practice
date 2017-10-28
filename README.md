@@ -10,6 +10,7 @@
     ref = sync('users');
     ref.update({'chen':{name:'merry chen'}});
 
+<<<<<<< HEAD
 ##  问题 
     Q: 部分手机不执行js,折腾了半天发现是 'use strict'的原因
     A: "use strict" 单引号不解析？
@@ -90,3 +91,6 @@
    
 ## 学习记录
    * <a herf="./let & var.md">let & var</a>
+=======
+<a href="./let & var.md">let & var</a>
+>>>>>>> origin/master

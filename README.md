@@ -1,6 +1,19 @@
 ## 不定时更新的笔记
-
+  * ### [可编辑的 HTMLElement](https://developer.mozilla.org/zh-CN/docs/Web/API/HTMLElement/contentEditable)
+    * #### [resize](https://developer.mozilla.org/zh-CN/docs/Web/CSS/resize)
+    ```html
+    <div contenteditable="true" style="resize: both;">我是可以编辑的</div>
+    ```
+    * 扩展 富文本编辑器
+    ```
+    结合上述API
+    再配合正则替换来高亮关键字
+    可以轻松实现在线Code的简单IDE
+    ```
+        
+  
 ## CSS
+
   * ### 背景渐变
         background: linear-gradient(to bottom right, red , blue);
   * ### input placeholder颜色
@@ -16,6 +29,19 @@
         :-ms-input-placeholder { /* Internet Explorer 10+ */
             color:    #999;
         }
+    通过sass会让事情变得简单
+    ```scss
+    @mixin placeholder {
+        &::-webkit-input-placeholder {@content}
+        &:-moz-placeholder           {@content}
+        &::-moz-placeholder          {@content}
+        &:-ms-input-placeholder      {@content}
+    }
+
+    @include placeholder{
+        color: #999;
+    };
+    ```
   * ### input 光标颜色 
   
     * [caret-color](https://developer.mozilla.org/en-US/docs/Web/CSS/caret-color)

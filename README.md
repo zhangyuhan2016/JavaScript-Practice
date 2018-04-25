@@ -1,3 +1,5 @@
+## 目前主要更新Hexo + Next搭建得静态Blog [zhangyuhan2016](http://zhangyuhan2016.gitee.io/)
+
 ## 不定时更新的笔记
   * ### [可编辑的 HTMLElement](https://developer.mozilla.org/zh-CN/docs/Web/API/HTMLElement/contentEditable)
     * #### [resize](https://developer.mozilla.org/zh-CN/docs/Web/CSS/resize)
